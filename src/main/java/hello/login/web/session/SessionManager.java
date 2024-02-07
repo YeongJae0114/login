@@ -1,5 +1,7 @@
 package hello.login.web.session;
 
+import org.springframework.stereotype.Component;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +10,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Component
 public class SessionManager {
     private Map<String, Object> sessionStore = new ConcurrentHashMap<>();
     public static final String SESSION_COOKIE_NAME = "mySessionId";
@@ -46,7 +49,7 @@ public class SessionManager {
         }
 
     }
-    
+
 
     public Cookie findCookie(HttpServletRequest request, String cookieName){
         Cookie[] cookies = request.getCookies();
