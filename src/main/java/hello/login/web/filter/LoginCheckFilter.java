@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @Slf4j
 public class LoginCheckFilter implements Filter {
-    private static final String[] whitelist = {"/", "/member/add", "/login","/logout", "/css/*"};
+    private static final String[] whitelist = {"/", "/members/add", "/login", "/logout", "/css/*"};
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
@@ -36,7 +36,7 @@ public class LoginCheckFilter implements Filter {
         }catch (Exception e){
             throw e; // 예외 로깅이 가능 하지만, 톰캣까지 예외를 보내주어야 함
         }finally {
-            log.info("인증 체크 필터 종료 {}",requestURI);
+            log.info("인증 체크 필터 종료 {}", requestURI);
         }
     }
 
